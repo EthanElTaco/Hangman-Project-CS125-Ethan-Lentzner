@@ -3,6 +3,53 @@
 #include <time.h>
 #include <string.h>
 
+void drawing(int* ptrLives) {
+if ((*ptrLives) == 6) {
+printf("You have 6 attempts left\n");
+printf("  +---+\n  |   | \n      |\n      |\n      |\n      | \n =========\n"); 
+}
+
+
+
+if ((*ptrLives) == 5) {
+printf("You have 5 attempts left\n");
+printf("  +---+\n  |   | \n  O   |\n      |\n      |\n      | \n =========\n"); 
+}
+
+
+
+if ((*ptrLives) == 4) {
+printf("You have 4 attempts left\n");
+printf("  +---+\n  |   | \n  O   |\n  |   |\n      |\n      | \n =========\n"); 
+}
+
+
+
+if ((*ptrLives) == 3) {
+printf("You have 3 attempts left\n");
+printf("  +---+\n  |   | \n  O   |\n /|   |\n      |\n      | \n =========\n"); 
+}
+
+
+
+if ((*ptrLives) == 2) {
+printf("You have 2 attempts left\n");
+printf("  +---+\n  |   | \n  O   |\n /|\\  |\n      |\n      | \n =========\n"); 
+}
+
+
+if ((*ptrLives) == 1) {
+printf("You have 1 attempt left\n");
+printf("  +---+\n  |   | \n  O   |\n /|\\  |\n /    |\n      | \n =========\n"); 
+}
+
+if ((*ptrLives) == 0) {
+printf("You are dead.\n");
+printf("  +---+\n  |   | \n  O   |\n /|\\  |\n / \\  |\n      | \n =========\n"); 
+}
+}
+
+
 int main() {
 
   srand(time(NULL));
@@ -19,12 +66,14 @@ int main() {
   int randPick = rand() % 6;
   printf("%s\n", posWords[randPick]);
   int Lives = 6;
+  int* ptrLives = &Lives;
   int amtcorrect = 0;
   int prevcorrect = 0;
   
   
   int WordLength = strlen(posWords[randPick]);
   char Guessedletters[26] = {0};
+  
   char guess[16];
   char enteredLetter;
   char blanks[10];
@@ -80,9 +129,10 @@ int main() {
     }
   printf("\n");
     if (prevcorrect == amtcorrect) {
-      Lives--;
+      (*ptrLives)--;
+      drawing(ptrLives);
       printf("Nope not right :(\n");
-      if (Lives == 0) {
+      if ((*ptrLives) == 0) {
         break;
       }
     }
@@ -90,9 +140,9 @@ int main() {
       printf("You got one :)\n");
   }
   
-  printf("%d\n", Lives);
+  printf("%d\n", (*ptrLives));
   }
-  if (Lives == 0) {
+  if ((*ptrLives) == 0) {
     printf("You failed, rip my man, the word was %s\n", posWords[randPick]);
   }
   else {
