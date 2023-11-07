@@ -9,7 +9,15 @@ int main() {
 
   srand(time(NULL));
   
-  char posWords[][16];
+  char posWords[][16] = {
+    "america",
+    "tractor",
+    "hazing",
+    "burger",
+    "food",
+    "xylophone"
+  };
+
   
   int randPick = rand() % 6;
   printf("%s\n", posWords[randPick]);
