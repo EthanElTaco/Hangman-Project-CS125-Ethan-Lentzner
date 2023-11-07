@@ -2,66 +2,14 @@
 #include <stdlib.h>
 #include <time.h>
 #include <string.h>
-
-void drawing(int* ptrLives) {
-if ((*ptrLives) == 6) {
-printf("You have 6 attempts left\n");
-printf("  +---+\n  |   | \n      |\n      |\n      |\n      | \n =========\n"); 
-}
-
-
-
-if ((*ptrLives) == 5) {
-printf("You have 5 attempts left\n");
-printf("  +---+\n  |   | \n  O   |\n      |\n      |\n      | \n =========\n"); 
-}
-
-
-
-if ((*ptrLives) == 4) {
-printf("You have 4 attempts left\n");
-printf("  +---+\n  |   | \n  O   |\n  |   |\n      |\n      | \n =========\n"); 
-}
-
-
-
-if ((*ptrLives) == 3) {
-printf("You have 3 attempts left\n");
-printf("  +---+\n  |   | \n  O   |\n /|   |\n      |\n      | \n =========\n"); 
-}
-
-
-
-if ((*ptrLives) == 2) {
-printf("You have 2 attempts left\n");
-printf("  +---+\n  |   | \n  O   |\n /|\\  |\n      |\n      | \n =========\n"); 
-}
-
-
-if ((*ptrLives) == 1) {
-printf("You have 1 attempt left\n");
-printf("  +---+\n  |   | \n  O   |\n /|\\  |\n /    |\n      | \n =========\n"); 
-}
-
-if ((*ptrLives) == 0) {
-printf("You are dead.\n");
-printf("  +---+\n  |   | \n  O   |\n /|\\  |\n / \\  |\n      | \n =========\n"); 
-}
-}
+#include "drawing.h"
 
 
 int main() {
 
   srand(time(NULL));
   
-  char posWords[][16] = {
-    "america",
-    "tractor",
-    "hazing",
-    "burger",
-    "food",
-    "xylophone"
-  };
+  char posWords[][16];
   
   int randPick = rand() % 6;
   printf("%s\n", posWords[randPick]);
@@ -71,6 +19,7 @@ int main() {
   int prevcorrect = 0;
   
   
+  
   int WordLength = strlen(posWords[randPick]);
   char Guessedletters[26] = {0};
   
@@ -78,6 +27,7 @@ int main() {
   char enteredLetter;
   char blanks[10];
   int q;
+
   
   for(q=0; q < WordLength; q++) {
       blanks[q] = '_';
@@ -87,6 +37,7 @@ int main() {
   blanks[q] = 0;
   
   while (amtcorrect < WordLength) {
+    drawing(ptrLives);
     printf("Enter a letter: ");
     fgets(guess, 16, stdin);
     
@@ -130,7 +81,6 @@ int main() {
   printf("\n");
     if (prevcorrect == amtcorrect) {
       (*ptrLives)--;
-      drawing(ptrLives);
       printf("Nope not right :(\n");
       if ((*ptrLives) == 0) {
         break;
@@ -150,3 +100,4 @@ int main() {
   }
 return 0;
 }
+
