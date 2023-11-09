@@ -4,10 +4,13 @@
 #include <string.h>
 #include "drawing.h"
 
+/*
+    Start of Nicholas Verhelle's code
+*/
 
 int main() {
-
-  srand(time(NULL));
+    
+  srand(time(NULL));                    
   
   char posWords[][16] = {
     "america",
@@ -17,10 +20,13 @@ int main() {
     "food",
     "xylophone"
   };
-
   
   int randPick = rand() % 6;
+  
+  //Error check (commet out when playing)
   printf("%s\n", posWords[randPick]);
+  
+  //Initializing variables
   int Lives = 6;
   int* ptrLives = &Lives;
   int amtcorrect = 0;
@@ -36,19 +42,28 @@ int main() {
   char blanks[10];
   int q;
 
-  
+  //Displaying blank letters
   for(q=0; q < WordLength; q++) {
       blanks[q] = '_';
       printf("%c ", blanks[q]);
   }
   printf("\n");
   blanks[q] = 0;
-  
+  //Displaying drawing and prompting user input
   while (amtcorrect < WordLength) {
     drawing(ptrLives);
     printf("Enter a letter: ");
     fgets(guess, 16, stdin);
+/*
+    End of Nicholas Verhelle's code
+*/
+  
     
+/*
+    Start of Dylan McGoldrick's code
+*/
+    
+    //Error checking
     if (guess[0] >= 65 && guess[0] <= 90){
         guess[0] = guess[0] + 32;
     }
@@ -66,11 +81,21 @@ int main() {
             guess[0] = guess[0] + 32;
         }
     }
+/*
+    End of Dylan McGoldrick's code
+*/
+
+
+/*
+    Start of Nicholas Verhelle's code
+*/
+
+    //Displaying guess
     enteredLetter = guess[0];
     printf("You entered %c\n", enteredLetter);
   
     prevcorrect = amtcorrect;
-  
+    //Checking guess
     int i = 0;
     for(i=0; i < WordLength; i++) {
         if (Guessedletters[i] == 1) {
@@ -83,10 +108,12 @@ int main() {
         }
         
     }
+    //Displaying missing and correct guesses
     for(q=0; q < WordLength; q++) {
       printf("%c ", blanks[q]);
     }
   printf("\n");
+    //If guessed letter is incorrect
     if (prevcorrect == amtcorrect) {
       (*ptrLives)--;
       printf("Nope not right :(\n");
@@ -97,7 +124,7 @@ int main() {
     else {
       printf("You got one :)\n");
   }
-  
+  //Printing and checking user still has lives
   printf("%d\n", (*ptrLives));
   }
   if ((*ptrLives) == 0) {
@@ -108,4 +135,6 @@ int main() {
   }
 return 0;
 }
-
+/*
+    End of Nicholas Verhelle's code
+*/
