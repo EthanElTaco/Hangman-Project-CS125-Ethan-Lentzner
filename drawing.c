@@ -2,6 +2,10 @@
 #ifndef HEADER_FILE
 #define HEADER_FILE
 
+ /*
+    Start of Ethan Lentzner's code
+*/
+
 void drawing(int* ptrLives) {
 if ((*ptrLives) == 6) {
 printf("You have 6 lives left\n");
@@ -46,5 +50,8 @@ if ((*ptrLives) == 0) {
 printf("You are dead.\n");
 printf("  +---+\n  |   | \n  O   |\n /|\\  |\n / \\  |\n      | \n =========\n"); 
 }
+/*
+    End of Ethan Lentzner
+*/
 }
 #endif
