@@ -1,4 +1,6 @@
 #include <stdio.h>
+#ifndef HEADER_FILE
+#define HEADER_FILE
 
 void drawing(int* ptrLives) {
 if ((*ptrLives) == 6) {
@@ -45,3 +47,4 @@ printf("You are dead.\n");
 printf("  +---+\n  |   | \n  O   |\n /|\\  |\n / \\  |\n      | \n =========\n"); 
 }
 }
+#endif
