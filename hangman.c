@@ -10,18 +10,14 @@
 
 int main() {
     
-  srand(time(NULL));                    
+  srand(time(NULL));                   
   
-  char posWords[][16] = {
-    "america",
-    "tractor",
-    "hazing",
-    "burger",
-    "food",
-    "xylophone"
-  };
+  char posWords[100][10];
+  FILE *file = fopen("WordBank.txt", "r");
   
-  int randPick = rand() % 6;
+  for (int i = 0; i < 100 && fscanf(file, "%10s", posWords[i]) == 1; i++);
+
+  int randPick = rand() % 100;
   
   //Error check (commet out when playing)
   printf("%s\n", posWords[randPick]);
