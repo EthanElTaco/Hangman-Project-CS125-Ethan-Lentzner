@@ -15,7 +15,7 @@ int main() {
   char posWords[100][10];
   FILE *file = fopen("WordBank.txt", "r");
   
-  for (int i = 0; i < 100 && fscanf(file, "%10s", posWords[i]) == 1; i++);
+  for (int i = 0; i < 100 && fscanf(file, "%10s", posWords[i]); i++);
 
   int randPick = rand() % 100;
   
