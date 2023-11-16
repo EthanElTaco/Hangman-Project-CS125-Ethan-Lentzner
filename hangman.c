@@ -16,7 +16,7 @@ int main() {
   FILE *file = fopen("WordBank.txt", "r");
 
   if (file == NULL) {
-      printf("ERROR: This file does not exist");
+      printf("ERROR: WordBank.txt file is missing.");
       return 0;
   }
 
