@@ -5,7 +5,7 @@
 #include "pointer.h"
 
 /*
-    Start of Nicholas Verhelle's code
+    Start of Ethan Lentzner's code
 */
 
 int main() {
@@ -21,6 +21,10 @@ int main() {
   }
 
   for (int i = 0; i < 100 && fscanf(file, "%10s", posWords[i]); i++);
+
+/*
+    End of Ethan Lentzner's code, Start of Nicholas Verhelle's code
+*/
 
   int randPick = rand() % 100;
   
@@ -56,12 +60,7 @@ int main() {
     printf("Enter a letter: ");
     fgets(guess, 16, stdin);
 /*
-    End of Nicholas Verhelle's code
-*/
-  
-    
-/*
-    Start of Dylan McGoldrick's code
+    End of Nicholas Verhelle's code, Start of Dylan McGoldrick's code
 */
     
     //Error checking
@@ -83,12 +82,7 @@ int main() {
         }
     }
 /*
-    End of Dylan McGoldrick's code
-*/
-
-
-/*
-    Start of Nicholas Verhelle's code
+    End of Dylan McGoldrick's code, Start of Nicholas Verhelle's code
 */
 
     //Displaying guess
