@@ -126,7 +126,6 @@ int main() {
       printf("You got one :)\n");
   }
   //Printing and checking user still has lives
-  printf("%d\n", (*ptrlives));
   }
   if ((*ptrlives) == 0) {
     printf("You failed, rip my man, the word was %s\n", posWords[randPick]);
