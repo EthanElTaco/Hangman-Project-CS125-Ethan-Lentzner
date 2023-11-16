@@ -2,7 +2,7 @@
 #include <stdlib.h>
 #include <time.h>
 #include <string.h>
-#include "drawing.h"
+#include "pointer.h"
 
 /*
     Start of Nicholas Verhelle's code
