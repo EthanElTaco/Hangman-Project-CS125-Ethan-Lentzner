@@ -87,7 +87,7 @@ int main() {
 
     //Displaying guess
     enteredLetter = guess[0];
-    printf("You entered %c\n", enteredLetter);
+    printf("You entered %c\n\n", enteredLetter);
   
     prevCorrect = amtCorrect;
     //Checking guess
