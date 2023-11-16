@@ -1,1 +1,1 @@
-void drawing(int* ptrLives);
+void drawing(int* ptrlives);
