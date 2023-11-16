@@ -51,7 +51,7 @@ printf("You are dead.\n");
 printf("  +---+\n  |   | \n  O   |\n /|\\  |\n / \\  |\n      | \n =========\n"); 
 }
 /*
-    End of Ethan Lentzner
+    End of Ethan Lentzner's Code
 */
 }
 #endif
