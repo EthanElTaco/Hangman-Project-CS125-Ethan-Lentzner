@@ -23,15 +23,15 @@ int main() {
   printf("%s\n", posWords[randPick]);
   
   //Initializing variables
-  int Lives = 6;
-  int* ptrLives = &Lives;
-  int amtcorrect = 0;
-  int prevcorrect = 0;
+  int lives = 6;
+  int* ptrlives = &lives;
+  int amtCorrect = 0;
+  int prevCorrect = 0;
   
   
   
-  int WordLength = strlen(posWords[randPick]);
-  char Guessedletters[26] = {0};
+  int wordLength = strlen(posWords[randPick]);
+  char guessedLetters[26] = {0};
   
   char guess[16];
   char enteredLetter;
@@ -39,15 +39,15 @@ int main() {
   int q;
 
   //Displaying blank letters
-  for(q=0; q < WordLength; q++) {
+  for(q=0; q < wordLength; q++) {
       blanks[q] = '_';
       printf("%c ", blanks[q]);
   }
   printf("\n");
   blanks[q] = 0;
   //Displaying drawing and prompting user input
-  while (amtcorrect < WordLength) {
-    drawing(ptrLives);
+  while (amtCorrect < wordLength) {
+    drawing(ptrlives);
     printf("Enter a letter: ");
     fgets(guess, 16, stdin);
 /*
@@ -90,30 +90,30 @@ int main() {
     enteredLetter = guess[0];
     printf("You entered %c\n", enteredLetter);
   
-    prevcorrect = amtcorrect;
+    prevCorrect = amtCorrect;
     //Checking guess
     int i = 0;
-    for(i=0; i < WordLength; i++) {
-        if (Guessedletters[i] == 1) {
+    for(i=0; i < wordLength; i++) {
+        if (guessedLetters[i] == 1) {
          continue;
          }
-        if(Guessedletters[i] == 0 && enteredLetter == posWords[randPick][i]) {
-            Guessedletters[i] = 1;
-            amtcorrect++;
+        if(guessedLetters[i] == 0 && enteredLetter == posWords[randPick][i]) {
+            guessedLetters[i] = 1;
+            amtCorrect++;
             blanks[i] = enteredLetter;
         }
         
     }
     //Displaying missing and correct guesses
-    for(q=0; q < WordLength; q++) {
+    for(q=0; q < wordLength; q++) {
       printf("%c ", blanks[q]);
     }
   printf("\n");
     //If guessed letter is incorrect
-    if (prevcorrect == amtcorrect) {
-      (*ptrLives)--;
+    if (prevCorrect == amtCorrect) {
+      (*ptrlives)--;
       printf("Nope not right :(\n");
-      if ((*ptrLives) == 0) {
+      if ((*ptrlives) == 0) {
         break;
       }
     }
@@ -121,9 +121,9 @@ int main() {
       printf("You got one :)\n");
   }
   //Printing and checking user still has lives
-  printf("%d\n", (*ptrLives));
+  printf("%d\n", (*ptrlives));
   }
-  if ((*ptrLives) == 0) {
+  if ((*ptrlives) == 0) {
     printf("You failed, rip my man, the word was %s\n", posWords[randPick]);
   }
   else {
