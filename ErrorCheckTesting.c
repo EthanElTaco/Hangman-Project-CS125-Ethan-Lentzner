@@ -25,6 +25,7 @@ int errorCheck(char* ptrguess, char* prevLetter){
   char blanks[10];
   int q;
   int j = 0;
+  int x;
  */
 /*
     do{
@@ -46,6 +47,7 @@ int errorCheck(char* ptrguess, char* prevLetter){
         }
     }
     *prevLetter[j] = *ptrguess[0];
-    int x = errorCheck(guess, prevLetter)
-    }(while x == 1);
+    int x = errorCheck(guess, prevLetter);
+    }while (x == 1);
+    j++;
 */
