@@ -2,6 +2,7 @@
 #include <stdlib.h>
 #include <time.h>
 #include <string.h>
+#include <ctype.h>
 #include "pointer.h"
 
 /*
@@ -43,9 +44,13 @@ int main() {
   char guessedLetters[26] = {0};
   
   char guess[16];
+  char prevLetter[26] = {0};
   char enteredLetter;
   char blanks[10];
+  char alreadyEnt[16];
   int q;
+  int j = 0;
+  int x;
 
   //Displaying blank letters
   for(q=0; q < wordLength; q++) {
@@ -59,28 +64,31 @@ int main() {
     drawing(ptrlives);
     printf("Enter a letter: ");
     fgets(guess, 16, stdin);
+    guess[0] = tolower(guess[0]);
 /*
     End of Nicholas Verhelle's code, Start of Dylan McGoldrick's code
 */
     
     //Error checking
-    if (guess[0] >= 65 && guess[0] <= 90){
-        guess[0] = guess[0] + 32;
-    }
+    do{
     while (guess[0] < 65 || guess[0] > 122){
         printf("Not a letter, re-enter letter: ");
         fgets(guess, 16, stdin);
         if (guess[0] >= 65 && guess[0] <= 90){
-            guess[0] = guess[0] + 32;
+            guess[0] = tolower(guess[0]);
         }
     }
     while (guess[0] > 90 && guess[0] < 97){
         printf("Not a letter, re-enter letter: ");
         fgets(guess, 16, stdin);
         if (guess[0] >= 65 && guess[0] <= 90){
-            guess[0] = guess[0] + 32;
+            guess[0] = tolower(guess[0]);
         }
     }
+    int x = errorCheck(guess, prevLetter);
+    prevLetter[j] = guess[0];
+    }while (x == 1);
+    j++;
 /*
     End of Dylan McGoldrick's code, Start of Nicholas Verhelle's code
 */
@@ -88,6 +96,7 @@ int main() {
     //Displaying guess
     enteredLetter = guess[0];
     printf("You entered %c\n\n", enteredLetter);
+    printf("Used letters %s\n", prevLetter);
   
     prevCorrect = amtCorrect;
     //Checking guess
@@ -108,6 +117,7 @@ int main() {
       printf("%c ", blanks[q]);
     }
   printf("\n");
+  //printf("Used letters: %s\n", prevLetter);
     //If guessed letter is incorrect
     if (prevCorrect == amtCorrect) {
       (*ptrlives)--;
