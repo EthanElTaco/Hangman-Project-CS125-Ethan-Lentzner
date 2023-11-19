@@ -6,7 +6,7 @@
 #include "pointer.h"
 
 /*
-    Start of Ethan Lentzner's code
+    Start of Nicholas Verhelle's code
 */
 
 int main() {
@@ -15,7 +15,11 @@ int main() {
   
   char posWords[100][10];
   FILE *file = fopen("WordBank.txt", "r");
-
+    
+/*
+    End of Nicholas Verhelle's code, Start of Ethan Lentzner's code
+*/
+    
   if (file == NULL) {
       printf("ERROR: WordBank.txt file is missing.");
       return 0;
